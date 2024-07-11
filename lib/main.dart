@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-const dGreen = Color(0xFF54D3C2);
+final dGreen = const Color(0xFF54D3C2);
 
 void main() {
   runApp(const MyApp());
@@ -25,13 +25,13 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: MyAppBar(),
+    return Scaffold(
+      appBar: const MyAppBar(),
       body: SingleChildScrollView(
         child: Column(
           children: [
             SearchSection(),
-            HotelSection(),
+            const HotelSection(),
           ],
         ),
       ),
@@ -48,13 +48,13 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: const IconButton(
-        icon: Icon(
+      leading: IconButton(
+        icon: const Icon(
           Icons.arrow_back,
           color: Color(0xFF424242),
           size: 20,
         ),
-        onPressed: null,
+        onPressed: () {},
       ),
       title: Text(
         'Explore',
@@ -64,22 +64,22 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
           fontWeight: FontWeight.w800,
         ),
       ),
-      actions: const [
+      actions: [
         IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.favorite_outline_rounded,
             color: Color(0xFF424242),
             size: 20,
           ),
-          onPressed: null,
+          onPressed: () {},
         ),
         IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.place,
             color: Color(0xFF424242),
             size: 20,
           ),
-          onPressed: null,
+          onPressed: () {},
         ),
       ],
       centerTitle: true,
@@ -89,7 +89,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
 }
 
 class SearchSection extends StatelessWidget {
-  const SearchSection({Key? key}) : super(key: key);
+  SearchSection({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -142,29 +142,68 @@ class SearchSection extends StatelessWidget {
                 ),
                 child: ElevatedButton(
                   onPressed: () {},
-                  child: const Icon(
-                    Icons.search,
-                    size: 26,
-                  ),
                   style: ElevatedButton.styleFrom(
                     shape: const CircleBorder(),
                     backgroundColor: dGreen,
                     padding: const EdgeInsets.all(10),
                   ),
+                  child: const Icon(
+                    Icons.search,
+                    size: 26,
+                  ),
                 ),
               ),
             ],
           ),
-          const SizedBox(height: 50),
+          const SizedBox(height: 8),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
                 margin: const EdgeInsets.all(10),
-                child: const Column(
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Choose date'),
-                    Text('22 Dec - 28 Dec'),
+                    Text(
+                      'Choose date',
+                      style: GoogleFonts.nunito(
+                        fontSize: 15,
+                        color: Colors.black,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      '22 Dec - 28 Dec',
+                      style: GoogleFonts.nunito(
+                        fontSize: 15,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.all(10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Number of Rooms',
+                      style: GoogleFonts.nunito(
+                        fontSize: 15,
+                        color: Colors.black,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      '1 Room - 2 Adults',
+                      style: GoogleFonts.nunito(
+                        fontSize: 15,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -182,8 +221,8 @@ class HotelSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 2000,
       color: Colors.white,
+      // Your content here
     );
   }
 }
