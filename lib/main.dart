@@ -31,7 +31,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             SearchSection(),
-            const HotelSection(),
+            HotelSection(),
           ],
         ),
       ),
@@ -106,12 +106,11 @@ class SearchSection extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(30),
-                    boxShadow: const [
+                    boxShadow: [
                       BoxShadow(
-                        color: Color.fromRGBO(128, 128, 128, 0.5),
-                        spreadRadius: 1,
+                        color: Colors.grey.shade300,
                         blurRadius: 4,
-                        offset: Offset(0, 4),
+                        offset: const Offset(0, 3),
                       ),
                     ],
                   ),
@@ -134,8 +133,8 @@ class SearchSection extends StatelessWidget {
                   boxShadow: const [
                     BoxShadow(
                       color: Colors.grey,
-                      blurRadius: 4,
-                      offset: Offset(0, 4),
+                      blurRadius: 0.5,
+                      offset: Offset(0, 1),
                     ),
                   ],
                   borderRadius: BorderRadius.circular(25),
@@ -216,13 +215,66 @@ class SearchSection extends StatelessWidget {
 }
 
 class HotelSection extends StatelessWidget {
-  const HotelSection({Key? key}) : super(key: key);
+  HotelSection({Key? key}) : super(key: key);
+
+  final List hotelList = [
+    {
+      'title': 'Bhutan Hotel',
+      'location': 'Thimphu, Bhutan',
+      'distance': 2.5,
+      'reviews': 4.5,
+      'picture': 'images/bali2.png',
+      'price': 200,
+    }
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.all(10),
       color: Colors.white,
-      // Your content here
+      child: Column(
+        children: [
+          SizedBox(
+            height: 50,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  '550 hotels found',
+                  style: GoogleFonts.nunito(
+                    fontSize: 15,
+                    color: Colors.black,
+                  ),
+                ),
+                Row(
+                  children: [
+                    Text(
+                      'Filters',
+                      style: GoogleFonts.nunito(
+                        fontSize: 15,
+                        color: Colors.black,
+                      ),
+                    ),
+                    IconButton(
+                      icon: Icon(
+                        Icons.filter_list_outlined,
+                        color: dGreen,
+                        size: 25,
+                      ),
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Container(
+            color: Colors.blueGrey,
+            height: 1000,
+          )
+        ],
+      ),
     );
   }
 }
