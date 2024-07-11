@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 // import 'package:google_fonts/google_fonts.dart';
 
 const dGreen = Color(0xFF54D3C2);
@@ -27,7 +28,20 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const MyAppBar(),
-      body: Container(),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              height: 200,
+              color: Colors.red,
+            ),
+            Container(
+              height: 1500,
+              color: Colors.green,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -42,10 +56,40 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       leading: const IconButton(
-        icon: Icon(Icons.arrow_back),
+        icon: Icon(
+          Icons.arrow_back,
+          color: Color(0xFF424242),
+          size: 20,
+        ),
         onPressed: null,
       ),
-      title: const Text('Home'),
+      title: Text(
+        'Explore',
+        style: GoogleFonts.nunito(
+          fontSize: 22,
+          color: Colors.black,
+          fontWeight: FontWeight.w800,
+        ),
+      ),
+      actions: const [
+        IconButton(
+          icon: Icon(
+            Icons.favorite_outline_rounded,
+            color: Color(0xFF424242),
+            size: 20,
+          ),
+          onPressed: null,
+        ),
+        IconButton(
+          icon: Icon(
+            Icons.place,
+            color: Color(0xFF424242),
+            size: 20,
+          ),
+          onPressed: null,
+        ),
+      ],
+      centerTitle: true,
       backgroundColor: Colors.white,
     );
   }
