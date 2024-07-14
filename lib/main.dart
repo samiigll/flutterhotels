@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 final dGreen = const Color(0xFF54D3C2);
@@ -317,56 +316,118 @@ class _HotelCardState extends State<HotelCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: const EdgeInsets.all(8),
-        height: 230,
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 19, 78, 125),
-          borderRadius: BorderRadius.circular(18),
-          boxShadow: const [
-            BoxShadow(
-              color: Colors.grey,
-              spreadRadius: 4,
-              blurRadius: 6,
-              offset: Offset(0, 3),
-            ),
-          ],
-        ),
-        child: Column(
-          children: [
-            Container(
-              height: 160,
-              decoration: BoxDecoration(
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(18),
-                  topRight: Radius.circular(18),
-                ),
-                color: Colors.red,
-                image: DecorationImage(
-                  image: AssetImage(widget.hotelData['picture']),
-                  fit: BoxFit.cover,
-                ),
+      margin: const EdgeInsets.all(8),
+      height: 230,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: const Color.fromARGB(255, 19, 78, 125),
+        borderRadius: BorderRadius.circular(18),
+        boxShadow: const [
+          BoxShadow(
+            color: Colors.grey,
+            spreadRadius: 4,
+            blurRadius: 6,
+            offset: Offset(0, 3),
+          ),
+        ],
+      ),
+      child: Column(
+        children: [
+          Container(
+            height: 140,
+            decoration: BoxDecoration(
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(18),
+                topRight: Radius.circular(18),
               ),
-              child: Stack(
-                children: [
-                  Positioned(
-                    top: 5,
-                    right: -15,
-                    child: MaterialButton(
-                      color: Colors.white,
-                      shape: CircleBorder(),
-                      onPressed: () {},
-                      child: Icon(
-                        Icons.favorite_outline_rounded,
-                        color: dGreen,
-                        size: 20,
+              color: Colors.red,
+              image: DecorationImage(
+                image: AssetImage(widget.hotelData['picture']),
+                fit: BoxFit.cover,
+              ),
+            ),
+            child: Stack(
+              children: [
+                Positioned(
+                  top: 5,
+                  right: -15,
+                  child: MaterialButton(
+                    color: Colors.white,
+                    shape: const CircleBorder(),
+                    onPressed: () {},
+                    child: Icon(
+                      Icons.favorite_outline_rounded,
+                      color: dGreen,
+                      size: 20,
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  widget.hotelData['title'],
+                  style: GoogleFonts.nunito(
+                    fontSize: 18,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Text(
+                      '\$${widget.hotelData['price']}',
+                      style: GoogleFonts.nunito(
+                        fontSize: 14,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-                  )
-                ],
-              ),
-            )
-          ],
-        ));
+                    Text(
+                      'per night',
+                      style: GoogleFonts.nunito(
+                        fontSize: 12,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 10),
+            child: Row(
+              children: [
+                Icon(Icons.place, color: dGreen, size: 14),
+                const SizedBox(width: 4), // İkon ve metin arasına boşluk ekler
+                Text(
+                  widget.hotelData['location'],
+                  style: GoogleFonts.nunito(
+                    fontSize: 14,
+                    color: Colors.black,
+                  ),
+                ),
+                const SizedBox(width: 4),
+                Text(
+                  '/ ${widget.hotelData['distance']} km to city',
+                  style: GoogleFonts.nunito(
+                    fontSize: 14,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
