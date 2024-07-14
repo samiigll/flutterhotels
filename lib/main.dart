@@ -334,7 +334,7 @@ class _HotelCardState extends State<HotelCard> {
       child: Column(
         children: [
           Container(
-            height: 140,
+            height: 135,
             decoration: BoxDecoration(
               borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(18),
@@ -421,6 +421,39 @@ class _HotelCardState extends State<HotelCard> {
                     fontSize: 14,
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.fromLTRB(10, 3, 10, 0),
+            child: Row(
+              children: [
+                Row(
+                  children: List.generate(5, (index) {
+                    if (index < widget.hotelData['reviews']) {
+                      return Icon(
+                        Icons.star,
+                        color: dGreen,
+                        size: 14,
+                      );
+                    } else {
+                      return const Icon(
+                        Icons.star,
+                        color: Colors.grey,
+                        size: 14,
+                      );
+                    }
+                  }),
+                ),
+                const SizedBox(width: 20),
+                const SizedBox(width: 4),
+                Text(
+                  '${widget.hotelData['reviews']} reviews',
+                  style: GoogleFonts.nunito(
+                    fontSize: 11,
+                    color: Colors.white,
                   ),
                 ),
               ],
