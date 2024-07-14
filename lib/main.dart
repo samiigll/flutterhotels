@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 final dGreen = const Color(0xFF54D3C2);
@@ -30,7 +31,7 @@ class HomePage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SearchSection(),
+            const SearchSection(),
             HotelSection(),
           ],
         ),
@@ -89,7 +90,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
 }
 
 class SearchSection extends StatelessWidget {
-  SearchSection({Key? key}) : super(key: key);
+  const SearchSection({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -225,13 +226,37 @@ class HotelSection extends StatelessWidget {
       'reviews': 4.5,
       'picture': 'images/bali2.png',
       'price': 200,
-    }
+    },
+    {
+      'title': 'Bali Hotel',
+      'location': 'Kuta, Bali',
+      'distance': 3.5,
+      'reviews': 4.8,
+      'picture': 'images/bali3.png',
+      'price': 300,
+    },
+    {
+      'title': 'Dubai Hotel',
+      'location': 'Dubai, UAE',
+      'distance': 5.5,
+      'reviews': 4.9,
+      'picture': 'images/bali4.png',
+      'price': 400,
+    },
+    {
+      'title': 'Paris Hotel',
+      'location': 'Paris, France',
+      'distance': 6.5,
+      'reviews': 4.7,
+      'picture': 'images/bali5.png',
+      'price': 500,
+    },
   ];
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       color: Colors.white,
       child: Column(
         children: [
@@ -269,12 +294,57 @@ class HotelSection extends StatelessWidget {
               ],
             ),
           ),
-          Container(
-            color: Colors.blueGrey,
-            height: 1000,
-          )
+          Column(
+            children: hotelList.map((hotel) {
+              return HotelCard(hotel);
+            }).toList(),
+          ),
         ],
       ),
     );
+  }
+}
+
+class HotelCard extends StatefulWidget {
+  final Map hotelData;
+  const HotelCard(this.hotelData, {super.key});
+
+  @override
+  _HotelCardState createState() => _HotelCardState();
+}
+
+class _HotelCardState extends State<HotelCard> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        margin: const EdgeInsets.all(8),
+        height: 230,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: Colors.blue,
+          borderRadius: BorderRadius.circular(18),
+          boxShadow: const [
+            BoxShadow(
+              color: Colors.grey,
+              spreadRadius: 4,
+              blurRadius: 6,
+              offset: Offset(0, 3),
+            ),
+          ],
+        ),
+        child: Column(
+          children: [
+            Container(
+              height: 160,
+              decoration: BoxDecoration(
+                color: Colors.red,
+                image: DecorationImage(
+                  image: AssetImage(widget.hotelData['picture']),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            )
+          ],
+        ));
   }
 }
