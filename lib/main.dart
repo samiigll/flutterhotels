@@ -321,7 +321,7 @@ class _HotelCardState extends State<HotelCard> {
         height: 230,
         width: double.infinity,
         decoration: BoxDecoration(
-          color: Colors.blue,
+          color: const Color.fromARGB(255, 19, 78, 125),
           borderRadius: BorderRadius.circular(18),
           boxShadow: const [
             BoxShadow(
