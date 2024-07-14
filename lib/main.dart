@@ -94,7 +94,7 @@ class SearchSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color.fromARGB(255, 19, 78, 125),
+      color: Colors.grey.shade300,
       padding: const EdgeInsets.fromLTRB(10, 25, 10, 10),
       child: Column(
         children: [
@@ -320,7 +320,7 @@ class _HotelCardState extends State<HotelCard> {
       height: 230,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 19, 78, 125),
+        color: Colors.white,
         borderRadius: BorderRadius.circular(18),
         boxShadow: const [
           BoxShadow(
@@ -340,7 +340,6 @@ class _HotelCardState extends State<HotelCard> {
                 topLeft: Radius.circular(18),
                 topRight: Radius.circular(18),
               ),
-              color: Colors.red,
               image: DecorationImage(
                 image: AssetImage(widget.hotelData['picture']),
                 fit: BoxFit.cover,
@@ -374,7 +373,7 @@ class _HotelCardState extends State<HotelCard> {
                   widget.hotelData['title'],
                   style: GoogleFonts.nunito(
                     fontSize: 18,
-                    color: Colors.white,
+                    color: Colors.black,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -385,7 +384,7 @@ class _HotelCardState extends State<HotelCard> {
                       '\$${widget.hotelData['price']}',
                       style: GoogleFonts.nunito(
                         fontSize: 14,
-                        color: Colors.white,
+                        color: Colors.black,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -393,7 +392,7 @@ class _HotelCardState extends State<HotelCard> {
                       'per night',
                       style: GoogleFonts.nunito(
                         fontSize: 12,
-                        color: Colors.white,
+                        color: Colors.black,
                       ),
                     ),
                   ],
@@ -411,7 +410,7 @@ class _HotelCardState extends State<HotelCard> {
                   widget.hotelData['location'],
                   style: GoogleFonts.nunito(
                     fontSize: 14,
-                    color: Colors.black,
+                    color: Colors.grey,
                   ),
                 ),
                 const SizedBox(width: 4),
@@ -419,7 +418,7 @@ class _HotelCardState extends State<HotelCard> {
                   '/ ${widget.hotelData['distance']} km to city',
                   style: GoogleFonts.nunito(
                     fontSize: 14,
-                    color: Colors.black,
+                    color: Colors.grey,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -453,7 +452,7 @@ class _HotelCardState extends State<HotelCard> {
                   '${widget.hotelData['reviews']} reviews',
                   style: GoogleFonts.nunito(
                     fontSize: 11,
-                    color: Colors.white,
+                    color: Colors.grey,
                   ),
                 ),
               ],
