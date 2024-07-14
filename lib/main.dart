@@ -347,6 +347,24 @@ class _HotelCardState extends State<HotelCard> {
                   fit: BoxFit.cover,
                 ),
               ),
+              child: Stack(
+                children: [
+                  Positioned(
+                    top: 5,
+                    right: -15,
+                    child: MaterialButton(
+                      color: Colors.white,
+                      shape: CircleBorder(),
+                      onPressed: () {},
+                      child: Icon(
+                        Icons.favorite_outline_rounded,
+                        color: dGreen,
+                        size: 20,
+                      ),
+                    ),
+                  )
+                ],
+              ),
             )
           ],
         ));
