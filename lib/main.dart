@@ -337,6 +337,10 @@ class _HotelCardState extends State<HotelCard> {
             Container(
               height: 160,
               decoration: BoxDecoration(
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(18),
+                  topRight: Radius.circular(18),
+                ),
                 color: Colors.red,
                 image: DecorationImage(
                   image: AssetImage(widget.hotelData['picture']),
