@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'calendar_page.dart';
 
-final dGreen = const Color(0xFF54D3C2);
+const dGreen = Color(0xFF54D3C2);
 
 void main() {
   runApp(const MyApp());
@@ -140,7 +141,14 @@ class SearchSection extends StatelessWidget {
                   borderRadius: BorderRadius.circular(25),
                 ),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) {
+                        return CalendarPage();
+                      }),
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                     shape: const CircleBorder(),
                     backgroundColor: dGreen,
